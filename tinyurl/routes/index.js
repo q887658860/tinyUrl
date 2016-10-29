@@ -13,4 +13,6 @@ router.get('/', function(req, res, next) {
 
 router.post('/create', actions.createTiny);
 
+router.get('/:counter', actions.redirectTiny);
+
 module.exports = router;

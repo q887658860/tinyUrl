@@ -18,8 +18,8 @@ var createTiny = function (req, res) {
 var redirectTiny = function (req, res) {
 	Tiny.find({
 		shortUrl: 'localhost:3000/' + req.params.counter
-	},function(err, tiny) {
-		res.redirect('http://' + tiny.longUrl);
+	}, function(err, tinies) {
+		res.redirect('http://' + tinies[0].longUrl);
 	});
 }
 
