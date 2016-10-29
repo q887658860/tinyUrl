@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <form action="/create" method="post" accept-charset="utf-8">
+    	<input type="text" name="longUrl" placeholder="please enter your long url">
+    	<button type="submit">Get short Url</button>
+    	<% if (shortUrl) { %>
+    		<div><%= shortUrl %></div>
+    	<% } %>
+    </form>
+  </body>
+</html>
