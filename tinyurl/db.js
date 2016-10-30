@@ -6,5 +6,7 @@ var Tiny = new Schema({
 	shortUrl: String
 });
 
+
 mongoose.model('Tiny', Tiny);
 mongoose.connect('mongodb://localhost/tiny');
+

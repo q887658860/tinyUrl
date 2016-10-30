@@ -1,6 +1,14 @@
 var mongoose = require('mongoose');
 var Tiny = mongoose.model('Tiny');
-var counter = 0;
+var storage = require('node-persist'); /*https://github.com/simonlast/node-persist */
+
+storage.initSync();
+
+
+if (! storage.getItemSync('counter')){
+	storage.setItemSync('counter', '0');
+}
+
 
 var getIndex = function(req, res, next) {
   res.render('index', {
@@ -10,7 +18,8 @@ var getIndex = function(req, res, next) {
 }
 
 var createTiny = function (req, res) {
-	counter++;
+	var counter = storage.getItemSync('counter');
+	storage.setItemSync('counter', ++counter);
 	new Tiny({
 		longUrl: req.body.longUrl,
 		shortUrl: 'localhost:3000/' + counter
