@@ -2,6 +2,13 @@ var mongoose = require('mongoose');
 var Tiny = mongoose.model('Tiny');
 var counter = 0;
 
+var getIndex = function(req, res, next) {
+  res.render('index', {
+  	title: 'TinyUrl Demo',
+  	shortUrl: ''
+  	});
+}
+
 var createTiny = function (req, res) {
 	counter++;
 	new Tiny({
@@ -25,3 +32,4 @@ var redirectTiny = function (req, res) {
 
 exports.createTiny = createTiny;
 exports.redirectTiny = redirectTiny;
+exports.getIndex = getIndex;

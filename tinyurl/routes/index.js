@@ -4,14 +4,9 @@ var router = express.Router();
 var actions = require('../model/actions');
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', {
-  	title: 'TinyUrl Demo',
-  	shortUrl: ''
-  	});
-});
+router.get('/', actions.getIndex);
 
-router.post('/create', actions.createTiny);
+router.post('/', actions.createTiny);
 
 router.get('/:counter', actions.redirectTiny);
 
