@@ -35,7 +35,8 @@ var redirectTiny = function (req, res) {
 	Tiny.find({
 		shortUrl: 'localhost:3000/' + req.params.counter
 	}, function(err, tinies) {
-		if(tinies && tinies.length > 0) {
+		console.log('error: ' + err);
+		if(err != null) {
 			res.redirect('http://' + tinies[0].longUrl);
 		} else {
 			res.redirect('/');
